@@ -39,6 +39,9 @@
             this.radBtnText = new System.Windows.Forms.RadioButton();
             this.toolStripCont = new System.Windows.Forms.ToolStripContainer();
             this.stStrip = new System.Windows.Forms.StatusStrip();
+            this.toolStripStLblAuthor = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStLblPostulate = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStLblInfo = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStrip = new System.Windows.Forms.ToolStrip();
             this.toolStripBtn1 = new System.Windows.Forms.ToolStripButton();
             this.toolStripBtn2 = new System.Windows.Forms.ToolStripButton();
@@ -47,12 +50,12 @@
             this.toolStripBtnR1 = new System.Windows.Forms.ToolStripButton();
             this.toolStripBtnR2 = new System.Windows.Forms.ToolStripButton();
             this.toolStripBtnR3 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripStLblAuthor = new System.Windows.Forms.ToolStripStatusLabel();
-            this.toolStripStLblPostulate = new System.Windows.Forms.ToolStripStatusLabel();
-            this.toolStripStLblInfo = new System.Windows.Forms.ToolStripStatusLabel();
+            this.richTxtBxData = new System.Windows.Forms.RichTextBox();
+            this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.grpBxOptions.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numUDBits)).BeginInit();
             this.toolStripCont.BottomToolStripPanel.SuspendLayout();
+            this.toolStripCont.ContentPanel.SuspendLayout();
             this.toolStripCont.TopToolStripPanel.SuspendLayout();
             this.toolStripCont.SuspendLayout();
             this.stStrip.SuspendLayout();
@@ -89,7 +92,7 @@
             this.lblBits.AutoSize = true;
             this.lblBits.Location = new System.Drawing.Point(363, 23);
             this.lblBits.Name = "lblBits";
-            this.lblBits.Size = new System.Drawing.Size(143, 21);
+            this.lblBits.Size = new System.Drawing.Size(114, 17);
             this.lblBits.TabIndex = 6;
             this.lblBits.Text = "Cantidad de bits:";
             // 
@@ -107,7 +110,8 @@
             0,
             0});
             this.numUDBits.Name = "numUDBits";
-            this.numUDBits.Size = new System.Drawing.Size(120, 22);
+            this.numUDBits.ReadOnly = true;
+            this.numUDBits.Size = new System.Drawing.Size(68, 22);
             this.numUDBits.TabIndex = 5;
             this.numUDBits.Value = new decimal(new int[] {
             5,
@@ -118,7 +122,7 @@
             // lblFilename
             // 
             this.lblFilename.AutoSize = true;
-            this.lblFilename.Location = new System.Drawing.Point(154, 52);
+            this.lblFilename.Location = new System.Drawing.Point(154, 66);
             this.lblFilename.Name = "lblFilename";
             this.lblFilename.Size = new System.Drawing.Size(65, 17);
             this.lblFilename.TabIndex = 3;
@@ -128,10 +132,11 @@
             // 
             this.btnFile.Location = new System.Drawing.Point(157, 19);
             this.btnFile.Name = "btnFile";
-            this.btnFile.Size = new System.Drawing.Size(102, 27);
+            this.btnFile.Size = new System.Drawing.Size(102, 44);
             this.btnFile.TabIndex = 2;
             this.btnFile.Text = "ARCHIVO";
             this.btnFile.UseVisualStyleBackColor = true;
+            this.btnFile.Click += new System.EventHandler(this.btnFile_Click);
             // 
             // radBtnFile
             // 
@@ -143,6 +148,7 @@
             this.radBtnFile.TabStop = true;
             this.radBtnFile.Text = "Archivo";
             this.radBtnFile.UseVisualStyleBackColor = true;
+            this.radBtnFile.CheckedChanged += new System.EventHandler(this.radBtnFile_CheckedChanged);
             // 
             // radBtnText
             // 
@@ -154,6 +160,7 @@
             this.radBtnText.TabStop = true;
             this.radBtnText.Text = "Texto";
             this.radBtnText.UseVisualStyleBackColor = true;
+            this.radBtnText.CheckedChanged += new System.EventHandler(this.radBtnText_CheckedChanged);
             // 
             // toolStripCont
             // 
@@ -164,6 +171,7 @@
             // 
             // toolStripCont.ContentPanel
             // 
+            this.toolStripCont.ContentPanel.Controls.Add(this.richTxtBxData);
             this.toolStripCont.ContentPanel.Size = new System.Drawing.Size(903, 404);
             this.toolStripCont.Dock = System.Windows.Forms.DockStyle.Fill;
             this.toolStripCont.Location = new System.Drawing.Point(0, 160);
@@ -187,6 +195,27 @@
             this.stStrip.Name = "stStrip";
             this.stStrip.Size = new System.Drawing.Size(903, 26);
             this.stStrip.TabIndex = 0;
+            // 
+            // toolStripStLblAuthor
+            // 
+            this.toolStripStLblAuthor.Name = "toolStripStLblAuthor";
+            this.toolStripStLblAuthor.Size = new System.Drawing.Size(56, 20);
+            this.toolStripStLblAuthor.Text = "AUTOR";
+            this.toolStripStLblAuthor.Click += new System.EventHandler(this.toolStripStLblAuthor_Click);
+            // 
+            // toolStripStLblPostulate
+            // 
+            this.toolStripStLblPostulate.Name = "toolStripStLblPostulate";
+            this.toolStripStLblPostulate.Size = new System.Drawing.Size(670, 20);
+            this.toolStripStLblPostulate.Spring = true;
+            this.toolStripStLblPostulate.Text = "Postulado x";
+            this.toolStripStLblPostulate.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // toolStripStLblInfo
+            // 
+            this.toolStripStLblInfo.Name = "toolStripStLblInfo";
+            this.toolStripStLblInfo.Size = new System.Drawing.Size(162, 20);
+            this.toolStripStLblInfo.Text = "x caracteres analizados";
             // 
             // toolStrip
             // 
@@ -260,25 +289,22 @@
             this.toolStripBtnR3.Size = new System.Drawing.Size(82, 24);
             this.toolStripBtnR3.Text = "Det 3er";
             // 
-            // toolStripStLblAuthor
+            // richTxtBxData
             // 
-            this.toolStripStLblAuthor.Name = "toolStripStLblAuthor";
-            this.toolStripStLblAuthor.Size = new System.Drawing.Size(56, 20);
-            this.toolStripStLblAuthor.Text = "AUTOR";
+            this.richTxtBxData.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.richTxtBxData.Location = new System.Drawing.Point(0, 0);
+            this.richTxtBxData.Name = "richTxtBxData";
+            this.richTxtBxData.Size = new System.Drawing.Size(903, 404);
+            this.richTxtBxData.TabIndex = 0;
+            this.richTxtBxData.Text = "";
+            this.richTxtBxData.TextChanged += new System.EventHandler(this.richTxtBxData_TextChanged);
             // 
-            // toolStripStLblPostulate
+            // openFileDialog
             // 
-            this.toolStripStLblPostulate.Name = "toolStripStLblPostulate";
-            this.toolStripStLblPostulate.Size = new System.Drawing.Size(670, 20);
-            this.toolStripStLblPostulate.Spring = true;
-            this.toolStripStLblPostulate.Text = "Postulado x";
-            this.toolStripStLblPostulate.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // toolStripStLblInfo
-            // 
-            this.toolStripStLblInfo.Name = "toolStripStLblInfo";
-            this.toolStripStLblInfo.Size = new System.Drawing.Size(162, 20);
-            this.toolStripStLblInfo.Text = "x caracteres analizados";
+            this.openFileDialog.DefaultExt = "txt";
+            this.openFileDialog.Filter = "Archivos de texto (*.txt)|*.txt";
+            this.openFileDialog.InitialDirectory = "D:\\";
+            this.openFileDialog.Title = "Postulado de Golomb - Archivo";
             // 
             // formHome
             // 
@@ -291,12 +317,13 @@
             this.Name = "formHome";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Home";
-            this.HelpButtonClicked += new System.ComponentModel.CancelEventHandler(this.formHome_HelpButtonClicked);
+            this.Load += new System.EventHandler(this.formHome_Load);
             this.grpBxOptions.ResumeLayout(false);
             this.grpBxOptions.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numUDBits)).EndInit();
             this.toolStripCont.BottomToolStripPanel.ResumeLayout(false);
             this.toolStripCont.BottomToolStripPanel.PerformLayout();
+            this.toolStripCont.ContentPanel.ResumeLayout(false);
             this.toolStripCont.TopToolStripPanel.ResumeLayout(false);
             this.toolStripCont.TopToolStripPanel.PerformLayout();
             this.toolStripCont.ResumeLayout(false);
@@ -332,6 +359,8 @@
         private System.Windows.Forms.ToolStripButton toolStripBtnR1;
         private System.Windows.Forms.ToolStripButton toolStripBtnR2;
         private System.Windows.Forms.ToolStripButton toolStripBtnR3;
+        private System.Windows.Forms.RichTextBox richTxtBxData;
+        private System.Windows.Forms.OpenFileDialog openFileDialog;
     }
 }
 
