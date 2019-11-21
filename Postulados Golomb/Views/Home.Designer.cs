@@ -39,6 +39,9 @@
             this.radBtnText = new System.Windows.Forms.RadioButton();
             this.toolStripCont = new System.Windows.Forms.ToolStripContainer();
             this.stStrip = new System.Windows.Forms.StatusStrip();
+            this.toolStripStLblAuthor = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStLblPostulate = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStLblInfo = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStrip = new System.Windows.Forms.ToolStrip();
             this.toolStripBtn1 = new System.Windows.Forms.ToolStripButton();
             this.toolStripBtn2 = new System.Windows.Forms.ToolStripButton();
@@ -47,9 +50,6 @@
             this.toolStripBtnR1 = new System.Windows.Forms.ToolStripButton();
             this.toolStripBtnR2 = new System.Windows.Forms.ToolStripButton();
             this.toolStripBtnR3 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripStLblAuthor = new System.Windows.Forms.ToolStripStatusLabel();
-            this.toolStripStLblPostulate = new System.Windows.Forms.ToolStripStatusLabel();
-            this.toolStripStLblInfo = new System.Windows.Forms.ToolStripStatusLabel();
             this.grpBxOptions.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numUDBits)).BeginInit();
             this.toolStripCont.BottomToolStripPanel.SuspendLayout();
@@ -89,7 +89,7 @@
             this.lblBits.AutoSize = true;
             this.lblBits.Location = new System.Drawing.Point(363, 23);
             this.lblBits.Name = "lblBits";
-            this.lblBits.Size = new System.Drawing.Size(143, 21);
+            this.lblBits.Size = new System.Drawing.Size(114, 17);
             this.lblBits.TabIndex = 6;
             this.lblBits.Text = "Cantidad de bits:";
             // 
@@ -188,6 +188,27 @@
             this.stStrip.Size = new System.Drawing.Size(903, 26);
             this.stStrip.TabIndex = 0;
             // 
+            // toolStripStLblAuthor
+            // 
+            this.toolStripStLblAuthor.Name = "toolStripStLblAuthor";
+            this.toolStripStLblAuthor.Size = new System.Drawing.Size(56, 20);
+            this.toolStripStLblAuthor.Text = "AUTOR";
+            this.toolStripStLblAuthor.Click += new System.EventHandler(this.toolStripStLblAuthor_Click);
+            // 
+            // toolStripStLblPostulate
+            // 
+            this.toolStripStLblPostulate.Name = "toolStripStLblPostulate";
+            this.toolStripStLblPostulate.Size = new System.Drawing.Size(631, 20);
+            this.toolStripStLblPostulate.Spring = true;
+            this.toolStripStLblPostulate.Text = "Postulado x";
+            this.toolStripStLblPostulate.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // toolStripStLblInfo
+            // 
+            this.toolStripStLblInfo.Name = "toolStripStLblInfo";
+            this.toolStripStLblInfo.Size = new System.Drawing.Size(162, 20);
+            this.toolStripStLblInfo.Text = "x caracteres analizados";
+            // 
             // toolStrip
             // 
             this.toolStrip.Dock = System.Windows.Forms.DockStyle.None;
@@ -260,26 +281,6 @@
             this.toolStripBtnR3.Size = new System.Drawing.Size(82, 24);
             this.toolStripBtnR3.Text = "Det 3er";
             // 
-            // toolStripStLblAuthor
-            // 
-            this.toolStripStLblAuthor.Name = "toolStripStLblAuthor";
-            this.toolStripStLblAuthor.Size = new System.Drawing.Size(56, 20);
-            this.toolStripStLblAuthor.Text = "AUTOR";
-            // 
-            // toolStripStLblPostulate
-            // 
-            this.toolStripStLblPostulate.Name = "toolStripStLblPostulate";
-            this.toolStripStLblPostulate.Size = new System.Drawing.Size(670, 20);
-            this.toolStripStLblPostulate.Spring = true;
-            this.toolStripStLblPostulate.Text = "Postulado x";
-            this.toolStripStLblPostulate.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // toolStripStLblInfo
-            // 
-            this.toolStripStLblInfo.Name = "toolStripStLblInfo";
-            this.toolStripStLblInfo.Size = new System.Drawing.Size(162, 20);
-            this.toolStripStLblInfo.Text = "x caracteres analizados";
-            // 
             // formHome
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -291,7 +292,6 @@
             this.Name = "formHome";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Home";
-            this.HelpButtonClicked += new System.ComponentModel.CancelEventHandler(this.formHome_HelpButtonClicked);
             this.grpBxOptions.ResumeLayout(false);
             this.grpBxOptions.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numUDBits)).EndInit();
