@@ -47,5 +47,24 @@ namespace Postulados_Golomb.Extensions
 
             return shortCad;
         }
+
+        public static double Compare(this string text, string textCompare)
+        {
+            int c = 0, nc = 0;
+
+            for (int i = 0; i < text.Length; i++)
+            {
+                if (text[i] == textCompare[i])
+                {
+                    c++;
+                }
+                else
+                {
+                    nc++;
+                }
+            }
+
+            return 1.0 * (c - nc) / text.Length;
+        }
     }
 }

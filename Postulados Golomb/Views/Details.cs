@@ -17,6 +17,7 @@ namespace Postulados_Golomb.Views
     {
         private List<int> _p1;
         private List<List<Element>> _p2;
+        private List<double> _p3;
         private int _bin;
         private int _indice;
 
@@ -35,6 +36,13 @@ namespace Postulados_Golomb.Views
             _bin = bin;
         }
 
+        public formDetails(int indice, List<double> postulatesAnalisisP3)
+        {
+            InitializeComponent();
+            _p3 = postulatesAnalisisP3;
+            _indice = indice;
+        }
+
         private void formDetails_Load(object sender, EventArgs e)
         {
             tabControl.TabPages.Clear();
@@ -45,7 +53,7 @@ namespace Postulados_Golomb.Views
                 case 1:
                     chart = new Chart();
                     chart.ChartAreas.Add("Area");
-                    chart.ChartAreas["Area"].AxisX.IntervalAutoMode = IntervalAutoMode.FixedCount;
+                    chart.ChartAreas["Area"].AxisX.IntervalAutoMode = IntervalAutoMode.VariableCount;
                     chart.Series.Add("Postulado1");
                     chart.Series["Postulado1"].ChartType = SeriesChartType.Column;
                     chart.Series["Postulado1"]["PointWidth"] = "0.5";
@@ -86,6 +94,31 @@ namespace Postulados_Golomb.Views
                         tabControl.TabPages.Add((i+1).ToString(), "TabPage" + (i+1));
                         tabControl.TabPages[(i+1).ToString()].Controls.Add(chart);
                     }
+                    break;
+                case 3:
+                    chart = new Chart();
+                    chart.ChartAreas.Add("Area");
+                    chart.ChartAreas["Area"].AxisX.IntervalAutoMode = IntervalAutoMode.VariableCount;
+                    chart.Series.Add("Postulado3");
+                    chart.Series["Postulado3"].ChartType = SeriesChartType.Line;
+                    //chart.Series["Postulado3"]["PointWidth"] = "0.5";
+                    chart.Series["Postulado3"].BorderWidth = 3;
+                    chart.Series["Postulado3"].IsValueShownAsLabel = true;
+                    chart.Dock = DockStyle.Fill;
+
+                    _p3.Select((y, x) => new
+                        {
+                            count = y,
+                            item = x
+                        })
+                        .ToList()
+                        .ForEach(obj =>
+                        {
+                            chart.Series["Postulado3"].Points.AddXY(obj.item, obj.count);
+                        });
+
+                    tabControl.TabPages.Add("1", "TabPage1");
+                    tabControl.TabPages["1"].Controls.Add(chart);
                     break;
             }
         }

@@ -130,10 +130,9 @@ namespace Postulados_Golomb
                         break;
                     case 2:
                         details = new formDetails(indice, postulates.AnalisisP2, (int) numUDBits.Value);
-                        toolStripBtnR2.Enabled = true;
                         break;
                     case 3:
-                        toolStripBtnR3.Enabled = true;
+                        details = new formDetails(indice, postulates.AnalisisP3);
                         break;
                 }
 

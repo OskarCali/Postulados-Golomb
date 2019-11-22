@@ -7,6 +7,7 @@ namespace Postulados_Golomb.Functions
     {
         public List<int> AnalisisP1 { get; set; }
         public List<List<Element>> AnalisisP2 { get; set; }
+        public List<double> AnalisisP3 { get; set; }
 
         public void postulado(int num, string text, int bin = 5)
         {
@@ -21,6 +22,8 @@ namespace Postulados_Golomb.Functions
                     AnalisisP2 = p2.analisis(text, bin);
                     break;
                 case 3:
+                    var p3 = new Postulate3();
+                    AnalisisP3 = p3.analisis(text);
                     break;
             }
         }
