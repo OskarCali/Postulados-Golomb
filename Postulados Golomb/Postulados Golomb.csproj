@@ -47,9 +47,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Extensions\elementExtension.cs" />
     <Compile Include="Extensions\stringExtension.cs" />
     <Compile Include="Functions\Postulate1.cs" />
+    <Compile Include="Functions\Postulate2.cs" />
     <Compile Include="Functions\Postulates.cs" />
+    <Compile Include="Models\Element.cs" />
     <Compile Include="Views\Details.cs">
       <SubType>Form</SubType>
     </Compile>

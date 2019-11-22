@@ -1,16 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Postulados_Golomb.Functions
 {
-    class Postulate1
+    internal class Postulate1
     {
+        /// <summary>
+        ///     Funcion para realizar el analisis del postulado 1
+        /// </summary>
+        /// <param name="text">Cadena binaria para buscar los 1's y 0's</param>
+        /// <returns>Lista con las coincidencias de 0's y 1's</returns>
         public List<int> analisis(string text)
         {
-            List<int> _analisis = new List<int>();
+            var _analisis = new List<int>();
 
             var cerosCount = text.Count(x => x == '0');
             var unosCount = text.Count(x => x == '1');
