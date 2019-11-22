@@ -42,6 +42,7 @@
             this.toolStripStLblAuthor = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStLblPostulate = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStLblInfo = new System.Windows.Forms.ToolStripStatusLabel();
+            this.richTxtBxData = new System.Windows.Forms.RichTextBox();
             this.toolStrip = new System.Windows.Forms.ToolStrip();
             this.toolStripBtn1 = new System.Windows.Forms.ToolStripButton();
             this.toolStripBtn2 = new System.Windows.Forms.ToolStripButton();
@@ -50,7 +51,6 @@
             this.toolStripBtnR1 = new System.Windows.Forms.ToolStripButton();
             this.toolStripBtnR2 = new System.Windows.Forms.ToolStripButton();
             this.toolStripBtnR3 = new System.Windows.Forms.ToolStripButton();
-            this.richTxtBxData = new System.Windows.Forms.RichTextBox();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.grpBxOptions.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numUDBits)).BeginInit();
@@ -217,6 +217,16 @@
             this.toolStripStLblInfo.Size = new System.Drawing.Size(162, 20);
             this.toolStripStLblInfo.Text = "x caracteres analizados";
             // 
+            // richTxtBxData
+            // 
+            this.richTxtBxData.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.richTxtBxData.Location = new System.Drawing.Point(0, 0);
+            this.richTxtBxData.Name = "richTxtBxData";
+            this.richTxtBxData.Size = new System.Drawing.Size(903, 404);
+            this.richTxtBxData.TabIndex = 0;
+            this.richTxtBxData.Text = "";
+            this.richTxtBxData.TextChanged += new System.EventHandler(this.richTxtBxData_TextChanged);
+            // 
             // toolStrip
             // 
             this.toolStrip.Dock = System.Windows.Forms.DockStyle.None;
@@ -233,7 +243,7 @@
             this.toolStrip.Location = new System.Drawing.Point(4, 0);
             this.toolStrip.Name = "toolStrip";
             this.toolStrip.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-            this.toolStrip.Size = new System.Drawing.Size(427, 27);
+            this.toolStrip.Size = new System.Drawing.Size(466, 27);
             this.toolStrip.TabIndex = 0;
             // 
             // toolStripBtn1
@@ -242,7 +252,9 @@
             this.toolStripBtn1.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripBtn1.Name = "toolStripBtn1";
             this.toolStripBtn1.Size = new System.Drawing.Size(54, 24);
+            this.toolStripBtn1.Tag = "1";
             this.toolStripBtn1.Text = "1er";
+            this.toolStripBtn1.Click += new System.EventHandler(this.toolStripBtnPostulate_Click);
             // 
             // toolStripBtn2
             // 
@@ -250,7 +262,9 @@
             this.toolStripBtn2.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripBtn2.Name = "toolStripBtn2";
             this.toolStripBtn2.Size = new System.Drawing.Size(59, 24);
+            this.toolStripBtn2.Tag = "2";
             this.toolStripBtn2.Text = "2do";
+            this.toolStripBtn2.Click += new System.EventHandler(this.toolStripBtnPostulate_Click);
             // 
             // toolStripBtn3
             // 
@@ -258,7 +272,9 @@
             this.toolStripBtn3.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripBtn3.Name = "toolStripBtn3";
             this.toolStripBtn3.Size = new System.Drawing.Size(54, 24);
+            this.toolStripBtn3.Tag = "3";
             this.toolStripBtn3.Text = "3er";
+            this.toolStripBtn3.Click += new System.EventHandler(this.toolStripBtnPostulate_Click);
             // 
             // toolStripSep1
             // 
@@ -271,7 +287,9 @@
             this.toolStripBtnR1.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripBtnR1.Name = "toolStripBtnR1";
             this.toolStripBtnR1.Size = new System.Drawing.Size(82, 24);
+            this.toolStripBtnR1.Tag = "1";
             this.toolStripBtnR1.Text = "Det 1er";
+            this.toolStripBtnR1.Click += new System.EventHandler(this.toolStripBtnPostulateResult_Click);
             // 
             // toolStripBtnR2
             // 
@@ -279,7 +297,9 @@
             this.toolStripBtnR2.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripBtnR2.Name = "toolStripBtnR2";
             this.toolStripBtnR2.Size = new System.Drawing.Size(87, 24);
+            this.toolStripBtnR2.Tag = "2";
             this.toolStripBtnR2.Text = "Det 2do";
+            this.toolStripBtnR2.Click += new System.EventHandler(this.toolStripBtnPostulateResult_Click);
             // 
             // toolStripBtnR3
             // 
@@ -287,17 +307,9 @@
             this.toolStripBtnR3.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripBtnR3.Name = "toolStripBtnR3";
             this.toolStripBtnR3.Size = new System.Drawing.Size(82, 24);
+            this.toolStripBtnR3.Tag = "3";
             this.toolStripBtnR3.Text = "Det 3er";
-            // 
-            // richTxtBxData
-            // 
-            this.richTxtBxData.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.richTxtBxData.Location = new System.Drawing.Point(0, 0);
-            this.richTxtBxData.Name = "richTxtBxData";
-            this.richTxtBxData.Size = new System.Drawing.Size(903, 404);
-            this.richTxtBxData.TabIndex = 0;
-            this.richTxtBxData.Text = "";
-            this.richTxtBxData.TextChanged += new System.EventHandler(this.richTxtBxData_TextChanged);
+            this.toolStripBtnR3.Click += new System.EventHandler(this.toolStripBtnPostulateResult_Click);
             // 
             // openFileDialog
             // 

@@ -47,6 +47,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Extensions\stringExtension.cs" />
+    <Compile Include="Functions\Postulate1.cs" />
+    <Compile Include="Functions\Postulates.cs" />
     <Compile Include="Views\Details.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -89,9 +92,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Extensions\" />
-    <Folder Include="Functions\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
