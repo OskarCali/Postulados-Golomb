@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
@@ -19,52 +18,19 @@ namespace Postulados_Golomb.Extensions
         }
 
         /// <summary>
-        ///     Funcion para pasar los bits a texto
+        ///     Funcion para comparar los caracteres de dos cadenas
         /// </summary>
-        /// <param name="data">Cadena binaria a transformar</param>
-        /// <param name="encoding">Tipo de codificacion</param>
-        /// <returns>Cadena de texto</returns>
-        public static string BinToText(this string data, Encoding encoding)
-        {
-            var byteList = new List<byte>();
-
-            for (var i = 0; i < data.Length; i += 8) byteList.Add(Convert.ToByte(data.Substring(i, 8), 2));
-
-            return encoding.GetString(byteList.ToArray());
-        }
-
-        /// <summary>
-        ///     Funcion para igualar una cadena con otra en longitud, manteniendo sus caracteres
-        /// </summary>
-        /// <param name="shortCad">Cadena que se quiere emparejar</param>
-        /// <param name="text">Cadena principal con la que se va a emparejar</param>
-        /// <returns>Cadena con misma longitud y caracteres reptidos</returns>
-        public static string ToEqualize(this string shortCad, string text)
-        {
-            while (shortCad.Length < text.Length) shortCad += shortCad;
-
-            shortCad = shortCad.Substring(0, text.Length);
-
-            return shortCad;
-        }
-
+        /// <param name="text">Cadena principal</param>
+        /// <param name="textCompare">Cadena con la que se va a comparar</param>
+        /// <returns></returns>
         public static double Compare(this string text, string textCompare)
         {
-            int c = 0, nc = 0;
+            var c = 0;
+            var length = text.Length;
 
-            for (int i = 0; i < text.Length; i++)
-            {
-                if (text[i] == textCompare[i])
-                {
-                    c++;
-                }
-                else
-                {
-                    nc++;
-                }
-            }
+            for (var i = 0; i < length; i++) c += text[i] == textCompare[i] ? 1 : 0;
 
-            return 1.0 * (c - nc) / text.Length;
+            return 1.0 * (c - (length - c)) / length;
         }
     }
 }
