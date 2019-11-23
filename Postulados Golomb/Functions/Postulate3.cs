@@ -1,21 +1,22 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using Postulados_Golomb.Extensions;
 
 namespace Postulados_Golomb.Functions
 {
-    class Postulate3
+    internal class Postulate3
     {
+        /// <summary>
+        ///     Analisis del postulado 3 para conocer el espectro de valores
+        /// </summary>
+        /// <param name="text">Cadena a analizar</param>
+        /// <returns>Lista de valores que conforman al espectro</returns>
         public List<double> analisis(string text)
         {
-            var _analisis = new  List<double>();
+            var _analisis = new List<double>();
 
-            string textTemp = text;
+            var textTemp = text;
 
-            for (int i = 0; i <= text.Length; i++)
+            for (var i = 0; i <= text.Length; i++)
             {
                 _analisis.Add(text.Compare(textTemp));
 
