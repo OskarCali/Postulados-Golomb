@@ -1,12 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.IO;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Postulados_Golomb.Extensions;
 using Postulados_Golomb.Functions;
@@ -16,8 +10,8 @@ namespace Postulados_Golomb
 {
     public partial class formHome : Form
     {
-        private Postulates postulates;
-        private formDetails details;
+        private Postulates _postulates;
+        private formDetails _details;
 
         public formHome()
         {
@@ -32,7 +26,7 @@ namespace Postulados_Golomb
 
         private void formHome_Load(object sender, EventArgs e)
         {
-            postulates = new Postulates();
+            _postulates = new Postulates();
 
             radBtnText.Checked = true;
 
@@ -46,6 +40,7 @@ namespace Postulados_Golomb
 
             toolStripStLblPostulate.Text = "";
             toolStripStLblInfo.Text = "";
+            toolStripStLblTime.Text = "";
         }
 
         private void radBtnText_CheckedChanged(object sender, EventArgs e)
@@ -56,6 +51,7 @@ namespace Postulados_Golomb
             lblFilename.Text = "";
 
             richTxtBxData.Text = "";
+            toolStripStLblTime.Text = "";
         }
 
         private void radBtnFile_CheckedChanged(object sender, EventArgs e)
@@ -65,20 +61,26 @@ namespace Postulados_Golomb
             btnFile.Enabled = true;
 
             richTxtBxData.Text = "";
+            toolStripStLblTime.Text = "";
         }
 
         private void btnFile_Click(object sender, EventArgs e)
         {
+            toolStripStLblInfo.Text = "Buscando archivo...";
+            Application.DoEvents();
+
             if (openFileDialog.ShowDialog(this) == DialogResult.OK)
             {
                 lblFilename.Text = openFileDialog.FileName;
                 richTxtBxData.Text = File.ReadAllText(lblFilename.Text);
+
+                toolStripStLblInfo.Text = "Archivo cargado!!";
             }
         }
 
         private void richTxtBxData_TextChanged(object sender, EventArgs e)
         {
-            if (!String.IsNullOrEmpty(richTxtBxData.Text))
+            if (!string.IsNullOrEmpty(richTxtBxData.Text))
             {
                 toolStripBtn1.Enabled = true;
                 toolStripBtn2.Enabled = true;
@@ -90,10 +92,19 @@ namespace Postulados_Golomb
         {
             try
             {
-                ToolStripButton btn = sender as ToolStripButton;
-                int indice = Int32.Parse(btn.Tag.ToString());
+                var binData = richTxtBxData.Text.TextToBin(Encoding.UTF8);
 
-                postulates.postulado(indice, richTxtBxData.Text.TextToBin(Encoding.UTF8), (int)numUDBits.Value);
+                var btn = sender as ToolStripButton;
+                var indice = int.Parse(btn.Tag.ToString());
+
+                toolStripStLblPostulate.Text = "Postulado " + indice;
+                toolStripStLblInfo.Text = "Analizando...";
+                toolStripStLblTime.Text = "";
+                Application.DoEvents();
+
+                var inicio = DateTime.Now;
+                _postulates.postulado(indice, binData, (int) numUDBits.Value);
+                var tiempo = DateTime.Now - inicio;
 
                 switch (indice)
                 {
@@ -107,9 +118,14 @@ namespace Postulados_Golomb
                         toolStripBtnR3.Enabled = true;
                         break;
                 }
+
+                toolStripStLblInfo.Text = binData.Length + " caracteres";
+                toolStripStLblTime.Text = tiempo.ToString("g");
             }
             catch (Exception ex)
             {
+                toolStripStLblInfo.Text = "error";
+
                 MessageBox.Show("Ocurrio un error, por favor revise las entradas\n" + ex.Message, "ERROR",
                     MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1,
                     MessageBoxOptions.ServiceNotification);
@@ -120,28 +136,42 @@ namespace Postulados_Golomb
         {
             try
             {
-                ToolStripButton btn = sender as ToolStripButton;
-                int indice = Int32.Parse(btn.Tag.ToString());
+                var inicio = DateTime.Now;
+
+                var btn = sender as ToolStripButton;
+                var indice = int.Parse(btn.Tag.ToString());
+
+                toolStripStLblPostulate.Text = "Detalles del postulado " + indice;
+                toolStripStLblInfo.Text = "Cargando...";
+                toolStripStLblTime.Text = "";
+                Application.DoEvents();
 
                 switch (indice)
                 {
                     case 1:
-                        details = new formDetails(indice, postulates.AnalisisP1);
+                        _details = new formDetails(indice, _postulates.AnalisisP1);
                         break;
                     case 2:
-                        details = new formDetails(indice, postulates.AnalisisP2, (int) numUDBits.Value);
+                        _details = new formDetails(indice, _postulates.AnalisisP2, (int) numUDBits.Value);
                         break;
                     case 3:
-                        details = new formDetails(indice, postulates.AnalisisP3);
+                        _details = new formDetails(indice, _postulates.AnalisisP3);
                         break;
                 }
 
+                var tiempo = DateTime.Now - inicio;
+                toolStripStLblInfo.Text = "";
+                toolStripStLblTime.Text = tiempo.ToString("g");
+                Application.DoEvents();
+
                 Hide();
-                details.ShowDialog(this);
+                _details.ShowDialog(this);
                 Show();
             }
             catch (Exception ex)
             {
+                toolStripStLblInfo.Text = "error";
+
                 MessageBox.Show("Ocurrio un error, por favor revise las entradas\n" + ex.Message, "ERROR",
                     MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1,
                     MessageBoxOptions.ServiceNotification);

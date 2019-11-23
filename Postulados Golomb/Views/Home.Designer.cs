@@ -42,6 +42,7 @@
             this.toolStripStLblAuthor = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStLblPostulate = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStLblInfo = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStLblTime = new System.Windows.Forms.ToolStripStatusLabel();
             this.richTxtBxData = new System.Windows.Forms.RichTextBox();
             this.toolStrip = new System.Windows.Forms.ToolStrip();
             this.toolStripBtn1 = new System.Windows.Forms.ToolStripButton();
@@ -65,9 +66,10 @@
             // lblTitle
             // 
             this.lblTitle.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lblTitle.Font = new System.Drawing.Font("MS Reference Sans Serif", 13.8F, System.Drawing.FontStyle.Bold);
             this.lblTitle.Location = new System.Drawing.Point(0, 0);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(903, 62);
+            this.lblTitle.Size = new System.Drawing.Size(922, 62);
             this.lblTitle.TabIndex = 0;
             this.lblTitle.Text = "POSTULADOS DE GOLOMB";
             this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -83,22 +85,26 @@
             this.grpBxOptions.Dock = System.Windows.Forms.DockStyle.Top;
             this.grpBxOptions.Location = new System.Drawing.Point(0, 62);
             this.grpBxOptions.Name = "grpBxOptions";
-            this.grpBxOptions.Size = new System.Drawing.Size(903, 98);
+            this.grpBxOptions.Size = new System.Drawing.Size(922, 98);
             this.grpBxOptions.TabIndex = 1;
             this.grpBxOptions.TabStop = false;
             // 
             // lblBits
             // 
+            this.lblBits.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblBits.AutoSize = true;
-            this.lblBits.Location = new System.Drawing.Point(363, 23);
+            this.lblBits.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.lblBits.Location = new System.Drawing.Point(618, 23);
             this.lblBits.Name = "lblBits";
-            this.lblBits.Size = new System.Drawing.Size(114, 17);
+            this.lblBits.Size = new System.Drawing.Size(117, 18);
             this.lblBits.TabIndex = 6;
             this.lblBits.Text = "Cantidad de bits:";
             // 
             // numUDBits
             // 
-            this.numUDBits.Location = new System.Drawing.Point(507, 21);
+            this.numUDBits.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.numUDBits.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.numUDBits.Location = new System.Drawing.Point(755, 21);
             this.numUDBits.Maximum = new decimal(new int[] {
             8,
             0,
@@ -111,7 +117,7 @@
             0});
             this.numUDBits.Name = "numUDBits";
             this.numUDBits.ReadOnly = true;
-            this.numUDBits.Size = new System.Drawing.Size(68, 22);
+            this.numUDBits.Size = new System.Drawing.Size(68, 24);
             this.numUDBits.TabIndex = 5;
             this.numUDBits.Value = new decimal(new int[] {
             5,
@@ -122,17 +128,19 @@
             // lblFilename
             // 
             this.lblFilename.AutoSize = true;
-            this.lblFilename.Location = new System.Drawing.Point(154, 66);
+            this.lblFilename.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Italic);
+            this.lblFilename.Location = new System.Drawing.Point(225, 64);
             this.lblFilename.Name = "lblFilename";
-            this.lblFilename.Size = new System.Drawing.Size(65, 17);
+            this.lblFilename.Size = new System.Drawing.Size(68, 18);
             this.lblFilename.TabIndex = 3;
             this.lblFilename.Text = "Filename";
             // 
             // btnFile
             // 
-            this.btnFile.Location = new System.Drawing.Point(157, 19);
+            this.btnFile.Font = new System.Drawing.Font("Segoe UI Semibold", 10.8F, System.Drawing.FontStyle.Bold);
+            this.btnFile.Location = new System.Drawing.Point(228, 21);
             this.btnFile.Name = "btnFile";
-            this.btnFile.Size = new System.Drawing.Size(102, 44);
+            this.btnFile.Size = new System.Drawing.Size(115, 40);
             this.btnFile.TabIndex = 2;
             this.btnFile.Text = "ARCHIVO";
             this.btnFile.UseVisualStyleBackColor = true;
@@ -141,9 +149,10 @@
             // radBtnFile
             // 
             this.radBtnFile.AutoSize = true;
-            this.radBtnFile.Location = new System.Drawing.Point(12, 52);
+            this.radBtnFile.Font = new System.Drawing.Font("Microsoft YaHei", 10.2F);
+            this.radBtnFile.Location = new System.Drawing.Point(12, 55);
             this.radBtnFile.Name = "radBtnFile";
-            this.radBtnFile.Size = new System.Drawing.Size(76, 21);
+            this.radBtnFile.Size = new System.Drawing.Size(93, 27);
             this.radBtnFile.TabIndex = 1;
             this.radBtnFile.TabStop = true;
             this.radBtnFile.Text = "Archivo";
@@ -153,9 +162,10 @@
             // radBtnText
             // 
             this.radBtnText.AutoSize = true;
+            this.radBtnText.Font = new System.Drawing.Font("Microsoft YaHei", 10.2F);
             this.radBtnText.Location = new System.Drawing.Point(12, 22);
             this.radBtnText.Name = "radBtnText";
-            this.radBtnText.Size = new System.Drawing.Size(64, 21);
+            this.radBtnText.Size = new System.Drawing.Size(77, 27);
             this.radBtnText.TabIndex = 0;
             this.radBtnText.TabStop = true;
             this.radBtnText.Text = "Texto";
@@ -172,11 +182,11 @@
             // toolStripCont.ContentPanel
             // 
             this.toolStripCont.ContentPanel.Controls.Add(this.richTxtBxData);
-            this.toolStripCont.ContentPanel.Size = new System.Drawing.Size(903, 404);
+            this.toolStripCont.ContentPanel.Size = new System.Drawing.Size(922, 417);
             this.toolStripCont.Dock = System.Windows.Forms.DockStyle.Fill;
             this.toolStripCont.Location = new System.Drawing.Point(0, 160);
             this.toolStripCont.Name = "toolStripCont";
-            this.toolStripCont.Size = new System.Drawing.Size(903, 457);
+            this.toolStripCont.Size = new System.Drawing.Size(922, 473);
             this.toolStripCont.TabIndex = 2;
             // 
             // toolStripCont.TopToolStripPanel
@@ -190,39 +200,50 @@
             this.stStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStLblAuthor,
             this.toolStripStLblPostulate,
-            this.toolStripStLblInfo});
+            this.toolStripStLblInfo,
+            this.toolStripStLblTime});
             this.stStrip.Location = new System.Drawing.Point(0, 0);
             this.stStrip.Name = "stStrip";
-            this.stStrip.Size = new System.Drawing.Size(903, 26);
+            this.stStrip.Size = new System.Drawing.Size(922, 29);
             this.stStrip.TabIndex = 0;
             // 
             // toolStripStLblAuthor
             // 
+            this.toolStripStLblAuthor.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold);
             this.toolStripStLblAuthor.Name = "toolStripStLblAuthor";
-            this.toolStripStLblAuthor.Size = new System.Drawing.Size(56, 20);
+            this.toolStripStLblAuthor.Size = new System.Drawing.Size(65, 23);
             this.toolStripStLblAuthor.Text = "AUTOR";
             this.toolStripStLblAuthor.Click += new System.EventHandler(this.toolStripStLblAuthor_Click);
             // 
             // toolStripStLblPostulate
             // 
+            this.toolStripStLblPostulate.Font = new System.Drawing.Font("Segoe UI", 10.2F);
             this.toolStripStLblPostulate.Name = "toolStripStLblPostulate";
-            this.toolStripStLblPostulate.Size = new System.Drawing.Size(670, 20);
+            this.toolStripStLblPostulate.Size = new System.Drawing.Size(593, 23);
             this.toolStripStLblPostulate.Spring = true;
             this.toolStripStLblPostulate.Text = "Postulado x";
             this.toolStripStLblPostulate.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // toolStripStLblInfo
             // 
+            this.toolStripStLblInfo.Font = new System.Drawing.Font("Segoe UI", 10.2F);
             this.toolStripStLblInfo.Name = "toolStripStLblInfo";
-            this.toolStripStLblInfo.Size = new System.Drawing.Size(162, 20);
+            this.toolStripStLblInfo.Size = new System.Drawing.Size(185, 23);
             this.toolStripStLblInfo.Text = "x caracteres analizados";
+            // 
+            // toolStripStLblTime
+            // 
+            this.toolStripStLblTime.Font = new System.Drawing.Font("Segoe UI", 10.2F);
+            this.toolStripStLblTime.Name = "toolStripStLblTime";
+            this.toolStripStLblTime.Size = new System.Drawing.Size(64, 23);
+            this.toolStripStLblTime.Text = "tiempo";
             // 
             // richTxtBxData
             // 
             this.richTxtBxData.Dock = System.Windows.Forms.DockStyle.Fill;
             this.richTxtBxData.Location = new System.Drawing.Point(0, 0);
             this.richTxtBxData.Name = "richTxtBxData";
-            this.richTxtBxData.Size = new System.Drawing.Size(903, 404);
+            this.richTxtBxData.Size = new System.Drawing.Size(922, 417);
             this.richTxtBxData.TabIndex = 0;
             this.richTxtBxData.Text = "";
             this.richTxtBxData.TextChanged += new System.EventHandler(this.richTxtBxData_TextChanged);
@@ -243,7 +264,7 @@
             this.toolStrip.Location = new System.Drawing.Point(4, 0);
             this.toolStrip.Name = "toolStrip";
             this.toolStrip.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-            this.toolStrip.Size = new System.Drawing.Size(466, 27);
+            this.toolStrip.Size = new System.Drawing.Size(499, 27);
             this.toolStrip.TabIndex = 0;
             // 
             // toolStripBtn1
@@ -286,9 +307,9 @@
             this.toolStripBtnR1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripBtnR1.Image")));
             this.toolStripBtnR1.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripBtnR1.Name = "toolStripBtnR1";
-            this.toolStripBtnR1.Size = new System.Drawing.Size(82, 24);
+            this.toolStripBtnR1.Size = new System.Drawing.Size(106, 24);
             this.toolStripBtnR1.Tag = "1";
-            this.toolStripBtnR1.Text = "Det 1er";
+            this.toolStripBtnR1.Text = "Detalle 1er";
             this.toolStripBtnR1.Click += new System.EventHandler(this.toolStripBtnPostulateResult_Click);
             // 
             // toolStripBtnR2
@@ -296,9 +317,9 @@
             this.toolStripBtnR2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripBtnR2.Image")));
             this.toolStripBtnR2.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripBtnR2.Name = "toolStripBtnR2";
-            this.toolStripBtnR2.Size = new System.Drawing.Size(87, 24);
+            this.toolStripBtnR2.Size = new System.Drawing.Size(111, 24);
             this.toolStripBtnR2.Tag = "2";
-            this.toolStripBtnR2.Text = "Det 2do";
+            this.toolStripBtnR2.Text = "Detalle 2do";
             this.toolStripBtnR2.Click += new System.EventHandler(this.toolStripBtnPostulateResult_Click);
             // 
             // toolStripBtnR3
@@ -306,9 +327,9 @@
             this.toolStripBtnR3.Image = ((System.Drawing.Image)(resources.GetObject("toolStripBtnR3.Image")));
             this.toolStripBtnR3.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripBtnR3.Name = "toolStripBtnR3";
-            this.toolStripBtnR3.Size = new System.Drawing.Size(82, 24);
+            this.toolStripBtnR3.Size = new System.Drawing.Size(106, 24);
             this.toolStripBtnR3.Tag = "3";
-            this.toolStripBtnR3.Text = "Det 3er";
+            this.toolStripBtnR3.Text = "Detalle 3er";
             this.toolStripBtnR3.Click += new System.EventHandler(this.toolStripBtnPostulateResult_Click);
             // 
             // openFileDialog
@@ -322,10 +343,12 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(903, 617);
+            this.ClientSize = new System.Drawing.Size(922, 633);
             this.Controls.Add(this.toolStripCont);
             this.Controls.Add(this.grpBxOptions);
             this.Controls.Add(this.lblTitle);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MinimumSize = new System.Drawing.Size(940, 680);
             this.Name = "formHome";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Home";
@@ -373,6 +396,7 @@
         private System.Windows.Forms.ToolStripButton toolStripBtnR3;
         private System.Windows.Forms.RichTextBox richTxtBxData;
         private System.Windows.Forms.OpenFileDialog openFileDialog;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStLblTime;
     }
 }
 
