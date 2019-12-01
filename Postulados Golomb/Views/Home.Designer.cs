@@ -336,7 +336,7 @@
             // 
             this.openFileDialog.DefaultExt = "txt";
             this.openFileDialog.Filter = "Archivos de texto (*.txt)|*.txt";
-            this.openFileDialog.InitialDirectory = "D:\\";
+            this.openFileDialog.InitialDirectory = "D:\\Drive Upp\\09_Cuatri\\Seguridad";
             this.openFileDialog.Title = "Postulado de Golomb - Archivo";
             // 
             // formHome

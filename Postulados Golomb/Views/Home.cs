@@ -1,8 +1,6 @@
 ﻿using System;
 using System.IO;
-using System.Text;
 using System.Windows.Forms;
-using Postulados_Golomb.Extensions;
 using Postulados_Golomb.Functions;
 using Postulados_Golomb.Views;
 
@@ -76,6 +74,10 @@ namespace Postulados_Golomb
 
                 toolStripStLblInfo.Text = "Archivo cargado!!";
             }
+            else
+            {
+                toolStripStLblInfo.Text = "Archivo no valido";
+            }
         }
 
         private void richTxtBxData_TextChanged(object sender, EventArgs e)
@@ -92,7 +94,7 @@ namespace Postulados_Golomb
         {
             try
             {
-                var binData = richTxtBxData.Text.TextToBin(Encoding.UTF8);
+                var binData = richTxtBxData.Text;
 
                 var btn = sender as ToolStripButton;
                 var indice = int.Parse(btn.Tag.ToString());
@@ -110,17 +112,24 @@ namespace Postulados_Golomb
                 {
                     case 1:
                         toolStripBtnR1.Enabled = true;
+                        _details = new formDetails(indice, _postulates.AnalisisP1);
                         break;
                     case 2:
                         toolStripBtnR2.Enabled = true;
+                        _details = new formDetails(indice, _postulates.AnalisisP2, (int) numUDBits.Value);
                         break;
                     case 3:
                         toolStripBtnR3.Enabled = true;
+                        _details = new formDetails(indice, _postulates.AnalisisP3);
                         break;
                 }
 
-                toolStripStLblInfo.Text = binData.Length + " caracteres";
+                toolStripStLblInfo.Text = binData.Length + " binarios";
                 toolStripStLblTime.Text = tiempo.ToString("g");
+
+                Hide();
+                _details.ShowDialog(this);
+                Show();
             }
             catch (Exception ex)
             {
