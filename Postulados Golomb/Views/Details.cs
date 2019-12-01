@@ -47,7 +47,6 @@ namespace Postulados_Golomb.Views
                 case 1:
                     chart = new Chart();
                     chart.ChartAreas.Add("Area");
-                    //chart.ChartAreas["Area"].AxisX.IntervalAutoMode = IntervalAutoMode.VariableCount;
                     chart.Series.Add("Postulado1");
                     chart.Series["Postulado1"].ChartType = SeriesChartType.Column;
                     chart.Series["Postulado1"]["PointWidth"] = "0.5";
@@ -73,7 +72,6 @@ namespace Postulados_Golomb.Views
                         chart.ChartAreas["Area"].AxisX.IntervalAutoMode = IntervalAutoMode.VariableCount;
                         chart.Series.Add("Bin " + (i + 1));
                         chart.Series["Bin " + (i + 1)].ChartType = SeriesChartType.Column;
-                        //chart.Series["Bin " + (i + 1)]["PointWidth"] = "0.5";
                         chart.Series["Bin " + (i + 1)].IsValueShownAsLabel = true;
                         chart.Dock = DockStyle.Fill;
 
@@ -91,12 +89,10 @@ namespace Postulados_Golomb.Views
                     chart.ChartAreas["Area"].AxisX.IntervalAutoMode = IntervalAutoMode.VariableCount;
                     chart.Series.Add("Postulado3");
                     chart.Series["Postulado3"].ChartType = SeriesChartType.Line;
-                    //chart.Series["Postulado3"]["PointWidth"] = "0.5";
                     chart.Series["Postulado3"].BorderWidth = 2;
-                    //chart.Series["Postulado3"].IsValueShownAsLabel = true;
                     chart.Dock = DockStyle.Fill;
 
-                    chart.Click += Chart_Click;
+                    chart.Click += Chart3_Click;
 
                     tabControl.TabPages.Add("1", "TabPage1");
                     tabControl.TabPages["1"].Controls.Add(chart);
@@ -104,9 +100,10 @@ namespace Postulados_Golomb.Views
             }
         }
 
-        private void Chart_Click(object sender, EventArgs e)
+        private void Chart3_Click(object sender, EventArgs e)
         {
             var chart = sender as Chart;
+            var step = 1;
 
             _p3.Select((y, x) => new
                 {
@@ -117,7 +114,9 @@ namespace Postulados_Golomb.Views
                 .ForEach(obj =>
                 {
                     chart?.Series["Postulado3"].Points.AddXY(obj.item, obj.count);
-                    Application.DoEvents();
+                    if (obj.item == step * 10) step *= 10;
+
+                    if (obj.item % step == 0) Application.DoEvents();
                 });
         }
     }
