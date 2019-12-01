@@ -4,6 +4,9 @@ using System.Text;
 
 namespace Postulados_Golomb.Extensions
 {
+    /// <summary>
+    ///     Definicio de la clase stringExtension para extensiones de la clase String
+    /// </summary>
     internal static class stringExtension
     {
         /// <summary>
