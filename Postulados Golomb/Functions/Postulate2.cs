@@ -9,11 +9,11 @@ namespace Postulados_Golomb.Functions
     internal class Postulate2
     {
         /// <summary>
-        ///     Metodo analisis para evaluar cadena binaria por pares, trinas, etc
+        ///     Metodo para analizar pequeños grupos de binarios
         /// </summary>
-        /// <param name="text">Cadena a evaluar</param>
-        /// <param name="bin">Cantidad de bits por grupo</param>
-        /// <returns>Grupos de bits evaluados</returns>
+        /// <param name="text">Secuencia binaria pseudo-aleatoria</param>
+        /// <param name="bin">Cantidad de binarios maximos en un grupo</param>
+        /// <returns>Lista de grupos analizados</returns>
         public List<List<Element>> analisis(string text, int bin)
         {
             var _groups = new List<List<Element>>();
@@ -21,7 +21,6 @@ namespace Postulados_Golomb.Functions
             for (var i = 2; i <= bin; i++)
             {
                 var group = new List<Element>();
-                //group.Add("0".PadLeft(i, '0'));
 
                 for (var j = 0; j < (int) Math.Pow(2, i); j++)
                     group.Add(new Element(Convert.ToString(j, 2).PadLeft(i, '0')));
@@ -32,10 +31,10 @@ namespace Postulados_Golomb.Functions
             for (var i = 2; i <= bin; i++)
             for (var j = 0; j < text.Length; j++)
             {
-                var tempAnalisis = text.Substring(0, i);
+                var tempGroup = text.Substring(0, i);
 
                 var grupo = _groups[i - 2];
-                grupo.FirstOrDefault(x => x.Name == tempAnalisis).Update();
+                grupo.FirstOrDefault(x => x.Name == tempGroup).Update();
 
                 var temp = text[0];
                 text = text.Remove(0, 1);

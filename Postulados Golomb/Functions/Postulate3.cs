@@ -6,10 +6,10 @@ namespace Postulados_Golomb.Functions
     internal class Postulate3
     {
         /// <summary>
-        ///     Analisis del postulado 3 para conocer el espectro de valores
+        ///     Analisis de la correlacion de la secuencia binaria
         /// </summary>
-        /// <param name="text">Cadena a analizar</param>
-        /// <returns>Lista de valores que conforman al espectro</returns>
+        /// <param name="text">Secuencia binaria pseudo-aleatoria</param>
+        /// <returns>Lista de correlacion</returns>
         public List<double> analisis(string text)
         {
             var _analisis = new List<double>();

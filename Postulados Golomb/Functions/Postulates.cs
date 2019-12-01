@@ -9,6 +9,12 @@ namespace Postulados_Golomb.Functions
         public List<List<Element>> AnalisisP2 { get; set; }
         public List<double> AnalisisP3 { get; set; }
 
+        /// <summary>
+        ///     Funcion para conocer cual postulado sera analizado
+        /// </summary>
+        /// <param name="num">Numero de postulado</param>
+        /// <param name="text">Secuencia binaria pseudo-aleatoria a analizar</param>
+        /// <param name="bin">Opcional para cantidad de agrupacion del segundo postulado</param>
         public void postulado(int num, string text, int bin = 5)
         {
             switch (num)

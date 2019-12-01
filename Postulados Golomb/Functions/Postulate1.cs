@@ -8,7 +8,7 @@ namespace Postulados_Golomb.Functions
         /// <summary>
         ///     Funcion para realizar el analisis del postulado 1
         /// </summary>
-        /// <param name="text">Cadena binaria para buscar los 1's y 0's</param>
+        /// <param name="text">Secuencia binaria pseudo-aleatoria</param>
         /// <returns>Lista con las coincidencias de 0's y 1's</returns>
         public List<int> analisis(string text)
         {
